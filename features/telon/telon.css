@@ -1,0 +1,186 @@
+.lora{
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 2rem;
+  font-style: normal;
+}
+
+#capa-cortinas{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    user-select: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden; /* Evita que las cortinas generen scroll al abrirse */
+}
+
+/* CUBRECORTINAS */
+
+#cortina-techo{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+/* CORTINAS */
+
+#contenedor-telones{
+    position: relative;
+    width: 100%;
+    height: 80%;
+
+    pointer-events: none;
+}
+
+.telon{
+    z-index: 10;
+    position: absolute;
+    width: 90%;
+    height: 108%;
+    top: 0;
+
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.izq{
+    left: -26rem;
+    object-position: left;
+}
+
+.der{
+    right: -26rem;
+    object-position: right;
+    transform: scaleX(-1);
+}
+
+.abrir-cortinas-izq{
+    animation: abrirTelonIzq 3s 1s forwards ease-in;
+}
+
+.abrir-cortinas-der{
+    animation: abrirTelonDer 3s 1s forwards ease-in;
+}
+
+/* TEXTO */
+
+#guia-arrastre{
+    z-index: 30;
+    position: fixed;
+    width: 70vw;
+    top: 9rem;
+    left: 5rem;
+    rotate: -7deg;
+    color: whitesmoke;
+    pointer-events: none;
+    text-align: center;
+
+    will-change: opacity;
+    transition: 0.5s opacity;
+}
+
+#guia-arrastre p{
+    font-size: 4rem;
+    text-shadow: 
+        black 0 0 50px,
+        black 0 0 50px,
+        black 0 0 50px,
+        black 0 0 50px,
+        black 0 0 50px,
+        black 0 0 50px,
+        black 0 0 50px
+    ;
+
+    animation: flotar 0.5s infinite alternate ease;
+}
+
+/* CUERDA */
+
+.cuerda-arrastre{
+    position: absolute;
+    top: 0rem;
+    right: 5rem;
+    height: 40vh;
+
+    translate: 0 -40rem;
+
+    z-index: 100000;
+    pointer-events: auto;
+    touch-action: none;
+}
+
+.mecerse{
+    animation: mecerse 2s infinite alternate ease;
+}
+
+.sin-balanceo {
+    animation: none !important;
+}
+
+.desvanecer {
+    animation: desvanecer 2s 2s forwards ease-in-out;
+}
+
+.desvanecer-rapido {
+    opacity: 0;
+}
+
+.reaparecer {
+    opacity: 1;
+}
+
+@keyframes tirarSoga {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(45rem);
+    }
+}
+
+@keyframes abrirTelonDer {
+    to { transform: translateX(30rem) scaleX(-1); }
+}
+
+@keyframes abrirTelonIzq {
+    to { transform: translateX(-30rem); }
+}
+
+@keyframes mecerse {
+    0% {
+        rotate: 0deg;
+    }
+    50% {
+        rotate: 1deg;
+    }
+    100% {
+        rotate: -1deg;
+    }
+}
+
+@keyframes desvanecer {
+    to {
+        opacity: 0;
+        scale: 1.05;
+    }    
+}
+
+@keyframes flotar {
+    from {
+        scale: 1;
+    }
+    to {
+        scale: 1.05;
+    }
+}

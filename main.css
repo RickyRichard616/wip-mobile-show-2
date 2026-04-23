@@ -1,0 +1,138 @@
+:root {
+    --color-fondo: #0f0f0f;
+    --color-oro: #D4AF37;
+    --color-oro-suave: #f0e68c;
+    --fuente-principal: "Almendra", serif;
+    --transicion-lenta: all 1.5s ease;
+    --z-fondo: 1;
+    --z-telon: 100;
+    --z-overlay: 200;
+    --z-superior: 300;
+}
+
+* { box-sizing: border-box; }
+
+body, html {
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background-color: var(--color-fondo);
+    font-family: var(--fuente-principal);
+    color: white;
+}
+
+p {
+    font-size: 3rem;
+}
+
+/* --- CONTENEDORES DE ESCENAS --- */
+.escena-proporcion, .overlay-inicio, .escena-full {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- SISTEMA DE VISIBILIDAD --- */
+.oculto-total { display: none !important; }
+.invisible { opacity: 0; pointer-events: none; }
+.visible { opacity: 1; pointer-events: all; transition: var(--transicion-lenta); }
+
+/* --- CAPAS ESPECÍFICAS --- */
+#pantalla-inicio, #pantalla-butaca, #pantalla-fotos, #pantalla-historia {
+    z-index: var(--z-overlay);
+    background-color: var(--color-fondo);
+
+    transition: opacity 3s;
+}
+
+/* Contenedor de las fotos para evitar que el layout "baile" */
+#pantalla-fotos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: opacity 2s ease;
+}
+
+#imagen-regalo {
+    /* Definimos un área segura máxima */
+    width: 90vw;
+    height: 45vh; 
+    
+    /* El truco de magia: escala la imagen sin deformarla y sin cambiar el tamaño del contenedor */
+    object-fit: contain;
+    
+    /* Transiciones suaves que ya tenías */
+    transition: opacity 2s ease;
+}
+
+#texto-durante-fotos {
+    /* Altura fija para el texto para que, aunque el texto sea largo o corto, 
+       no mueva la posición de la imagen hacia arriba o abajo */
+    font-size: 4rem;
+    min-height: 3em; 
+    max-width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 2s ease;
+}
+
+#texto-durante-historia {
+    /* Altura fija para el texto para que, aunque el texto sea largo o corto, 
+       no mueva la posición de la imagen hacia arriba o abajo */
+    font-size: 4rem;
+    min-height: 3em; 
+    max-width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 2s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contenido-inicio {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 3rem;
+}
+
+#contenedor-escena-telon { z-index: var(--z-telon); }
+#contenedor-escena-confeti { z-index: var(--z-superior); pointer-events: none; }
+
+/* --- ELEMENTOS COMUNES --- */
+.texto-dorado { color: var(--color-oro-suave); text-shadow: 0 0 15px rgba(240, 230, 140, 0.4); }
+.texto-enfasis { color: var(--color-oro); font-style: italic; }
+
+button {
+    background: rgba(212, 175, 55, 0.1);
+    border: 2px solid var(--color-oro);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 3rem;
+    transition: all 0.4s ease;
+}
+
+button:hover { background: var(--color-oro); color: black; transform: scale(1.05); }

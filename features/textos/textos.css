@@ -1,0 +1,37 @@
+/* --- COMPONENTES DEL SLIDESHOW --- */
+#imagen-regalo {
+    max-width: 80%;
+    max-height: 60vh;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.texto-narrativo-box {
+    width: 80%;
+    font-size: 3rem;
+    line-height: 1.5;
+    transition: var(--transicion-lenta);
+}
+
+/* --- TICKET --- */
+#ticket-entrada {
+    font-size: 15rem;
+    color: var(--color-oro);
+    cursor: pointer;
+    margin-top: 30px;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+    animation: palpitar 2s infinite ease-in-out;
+}
+
+@keyframes palpitar {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 20px var(--color-oro)); }
+}
+
+/* --- ANIMACIONES DE ESCENA --- */
+.fade-in { animation: aparecer 1.5s forwards; }
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

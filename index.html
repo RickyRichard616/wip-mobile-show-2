@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>El Teatro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="features/telon/telon.css">
+    <link rel="stylesheet" href="features/confeti/confeti.css">
+    <link rel="stylesheet" href="features/textos/textos.css">
+</head>
+
+<body>
+    <div id="pantalla-inicio" class="overlay-inicio visible">
+        <div class="contenido-inicio texto-dorado">
+            <div>
+                <h1>Bienvenida al Teatro</h1>
+                <p>Checkea tu ticket cuando estés lista...</p>
+            </div>
+            <i id="ticket-entrada" class="fi fi-ts-ticket"></i>
+        </div>
+    </div>
+
+    <div id="pantalla-butaca" class="overlay-inicio invisible oculto-total">
+        <p id="texto-butaca" class="texto-narrativo-box texto-dorado">
+            "Qué bueno que llegas, Fran. Toma asiento... la función está a punto de comenzar."
+        </p>
+        <br><br><br><br><br><br><br><br>
+        <button id="btn-ver-regalo" class="invisible">Ver regalo 🎁</button>
+    </div>
+
+    <div id="pantalla-fotos" class="overlay-inicio invisible oculto-total">
+        <!--<div id="texto-intro-regalo" class="texto-narrativo-box"></div>-->
+        <img id="imagen-regalo" src="" alt="Recuerdo">
+        <div id="texto-durante-fotos" class="texto-enfasis invisible"></div>
+    </div>
+
+    <div id="pantalla-historia" class="overlay-inicio invisible oculto-total">
+        <div id="texto-durante-historia" class="texto-enfasis invisible">
+        </div>
+    </div>
+
+    <div id="contenedor-escena-telon" class="escena-full invisible"></div>
+    <div id="contenedor-escena-confeti" class="escena-full invisible"></div>
+    
+    <script src="features/textos/textos.js"></script>
+    <script src="features/musica/musica.js"></script>
+    <script src="features/confeti/confeti.js"></script>
+    <script src="features/telon/telon.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
